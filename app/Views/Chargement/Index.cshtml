@@ -1,0 +1,256 @@
+﻿@model app.Models.Variable
+@using app.Models
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/Style/css/monitoring.css">
+    <style>
+        /* Ajout de styles CSS */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+
+        #header {
+            background-color: #fff;
+            border-bottom: 1px solid #ddd;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+            #header img {
+                height: 50px;
+            }
+
+            #header nav a {
+                margin-left: 20px;
+                font-weight: bold;
+                text-decoration: none;
+                color: #333;
+            }
+
+                #header nav a:hover {
+                    color: #000;
+                }
+
+        #content {
+            margin: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+        }
+
+            #content h1 {
+                font-size: 24px;
+                margin-bottom: 20px;
+            }
+
+            #content form label {
+                display: block;
+                margin-bottom: 10px;
+            }
+
+            #content form input[type=file] {
+                margin-bottom: 20px;
+            }
+
+            #content form input[type=submit] {
+                background-color: #333;
+                color: #fff;
+                border: none;
+                padding: 10px 20px;
+                font-size: 16px;
+                cursor: pointer;
+            }
+
+                #content form input[type=submit]:hover {
+                    background-color: #000;
+                }
+    </style>
+</head>
+<BODY BGCOLOR=#FFFFFF leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+    @*@using (Html.BeginForm("Index", "Chargement", FormMethod.Post))*@
+    @using (Html.BeginForm("Index", "Chargement", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+       
+        <table width="100%" border="0">
+            <tr>
+                <td height="492" background="~/images/bag.gif">
+                    <div align="center">
+                        <table width=762 border=0 cellpadding=0 cellspacing=0 align="center" bgcolor="#FFFFFF">
+                            <tr>
+                                <td rowspan=4 bgcolor="#FFFFFF">&nbsp; </td>
+                                <td>
+                                    <table width="99%" border="0" background="~/images/trait_haut.gif">
+                                        <tr>
+                                            <td class="TTxt" width="16%">
+                                                <div align="center"><a href="../ConnexionMonitoring.asp" class="TTxt"><b>Deconnexion</b></a></div>
+                                            </td>
+                                            <td class="TTxt" width="1%">
+                                                <div align="center"><img src="~/images/separe_menu.gif" width="5" height="57"></div>
+                                            </td>
+                                            <td width="33%" class="TTxt">
+                                                <div align="center"><a href="../../menuGeneral.asp" class="TTxt"><b>Gestion des Registres</b></a></div>
+                                            </td>
+                                            <td width="3%" class="TTxt">
+                                                <div align="center"><img src="~/images/separe_menu.gif" width="5" height="57"></div>
+                                            </td>
+                                            <td width="32%" class="TTxt">
+                                                <div align="center"><a href="ResultatsGen.asp" class="TTxt"><b>Gestion  des Performances</b></a></div>
+                                            </td>
+                                            <td width="2%" class="TTxt">
+                                                <div align="center"><img src="~/images/separe_menu.gif" width="5" height="57"></div>
+                                            </td>
+                                            <td width="13%" class="TTxt">
+                                                <div align="center"><a href="" class="TTxt"><b>Accueil</b></a></div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td rowspan=4 bgcolor="#B2C1CF">&nbsp; </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div align="left" class="TLien2">
+                                        <img src="~/images/logo.gif" width="217" height="61">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td height="329" valign="top">
+                                    <div align="center">
+                                        <table width="100%" border="0">
+                                            <tr>
+                                                <td height="316" valign="top">
+                                                    <div align="center">
+                                                        <table width="100%" border="1" align="center" bordercolor="#000066" cellspacing="6">
+                                                            <tr>
+                                                                <td bordercolor="#FFFFFF" valign="top" bgcolor="#003399" width="38%" class="TTxt">
+                                                                    <div align="center">
+                                                                        <a href="ListePoles.asp" class="TTxt">    LISTES DES POLES </a>
+                                                                    </div>
+                                                                <td bordercolor="#FFFFFF" valign="top" bgcolor="#003399" width="35%">
+                                                                    <div align="center"><a href="fonctionnalites.asp" onClick="MenuParam(); return false" class="TTxt">FONCTIONNALITES</a></div>
+                                                                <td bordercolor="#FFFFFF" valign="top" bgcolor="#003399" width="27%" class="TTxt">
+                                                                    <div align="center">
+                                                                        <a href="ResultatsGen.asp" class="TTxt"> STATISTIQUE DES POLES </a>
+                                                                    </div>
+                                                            <tr bgcolor="#FFFFFF">
+                                                                <td bordercolor="#FFFFFF" valign="top" colspan="3" class="TTxt">
+                                                                    <table width="100%" border="0">
+                                                                        <tr bgcolor="#FFFFFF">
+                                                                            <td colspan="2" height="2" class="inputT">___________________________________________________________</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td width="5%" height="24">
+                                                                                <div align="center"><img src="images/trait3.gif" width="4" height="35"></div>
+                                                                            </td>
+                                                                            <td width="95%" class="inputT" height="24">
+                                                                                <img src="~/images/point2.gif" width="12" height="11">
+                                                                                <span class="TLien">CHARGEMENT DES DONNEES A PARTIR DE FICHIERS EXCEL </span>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </table>
+                                                        </table>
+                                                        <form method="post" name="frmpoles" ENCTYPE="multipart/form-data" action="">
+                                                            <input type="hidden" name="txtload">
+                                                            <input type="hidden" name="txtnompole">
+                                                            <input type="hidden" name="txtpasse">
+                                                            <table width="100%" border="1" align="center" bordercolor="#0003399" cellspacing="6">
+                                                                <tr>
+                                                                    <td bordercolor="#FFFFFF" valign="top" width="32%" height="5" class="inputT" nowrap>
+                                                                        <p align="left" class="inputT">
+                                                                            Nom Poles
+                                                                         
+                                                                            @Html.DropDownListFor(model => model.idPole, new SelectList(ViewBag.ListNomPoles, "Value", "Text"), new { @class = "form-control" })
+                                                                        </p>
+                                                                    <td bordercolor="#FFFFFF" valign="top" class="inputT" colspan="3" height="5" nowrap>
+                                                                        <div align="left">
+                                                                            Famille Poles
+                                                                            @Html.DropDownListFor(model => model.CodeFamille, new SelectList(ViewBag.listFamillePole, "Value", "Text"), new { @class = "form-control" })
+                                                                        </div>
+                                                                <tr>
+                                                                    <td bordercolor="#FFFFFF" valign="top" width="32%" class="inputT">
+                                                                        Années
+                                                                        @*<input type="text" name="txtannee" size="5" onKeyUp="Numeric('annee');" maxlength="4" value="0" class="inputT">*@
+                                                                        @Html.TextBoxFor(model => model.annee, "", new { @class = "form-control", @placeholder = "Choisir l'année", @type = "number", @min = "2000", @max = "2099", @step = "1", @value = "@DateTime.Now.Year" })
+                                                                    <td bordercolor="#FFFFFF" valign="top" class="inputT" colspan="3">
+                                                                        Périodes
+
+                                                                        @Html.DropDownListFor(model => model.mois, new SelectList(ViewBag.ListMois, "Value", "Text"), new { @class = "form-control" })
+
+                                                                <tr>
+                                                                    <td bordercolor="#FFFFFF" valign="top" width="32%" height="39" class="inputT">
+                                                                        <div align="center">
+                                                                            <p class="inputT">Nom du fichier Excel(chemin compris) </p>
+                                                                        </div>
+                                                                    <td bordercolor="#FFFFFF" valign="top" colspan="2" height="39" class="inputT">
+                                                                        <div align="center"> </div>
+                                                                        <div align="center"> </div>
+                                                                        <div align="center">
+                                                                            <input class="inputT" type="file" name="file1" size="55" value="Browse">
+                                                                        </div>
+
+                                                                    <td bordercolor="#FFFFFF" valign="top" width="20%" height="39" class="inputT">
+                                                                <tr>
+                                                                    <td bordercolor="#FFFFFF" valign="top" width="32%" height="38" class="inputT">
+                                                                        <div align="right">
+                                                                            <input type="submit" value="Charger les données" class="inputT">
+                                                                        </div>
+                                                                    <td bordercolor="#FFFFFF" valign="top" width="20%" height="38" class="inputT">
+                                                                        <div align="center">
+                                                                            <input type="button" onClick="Annuler();" value="Annuler" class="inputT">
+                                                                        </div>
+
+                                                                    <td bordercolor="#FFFFFF" valign="top" height="38" class="inputT" width="20%">
+                                                                        <input type="button" onClick="Retour();" value="Back" class="TLien">
+
+                                                            </table>
+                                                            @if (!string.IsNullOrEmpty(ViewBag.SuccessMessage))
+                                                            {
+                                                            <div class="alert alert-success" style="color: green;">
+                                                                @ViewBag.SuccessMessage
+                                                            </div>
+                                                            }
+                                                        </form>
+
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </table>
+
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+
+                                <td>
+                                    <table width="100%" border="1" align="center" bordercolor="#000066" cellspacing="6">
+                                        <tr>
+                                            <td bordercolor="#FFFFFF" valign="top" bgcolor="#003399" height="2" class="TTxt">
+                                                <div align="center" class="TLien2">
+                                                    copyright Gainde 2000
+                                                </div>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <!-- End ImageReady Slices -->
+    }
+</BODY>
+</html>
